@@ -75,12 +75,11 @@ deformed mesh:
 #### Solution:
 
 The object hierarchy was restructured by separating:
-
-<img src="media/hierarchyRestructuredAndAddedPivots.png" width="400" alt="hierarchy solution">
-
 - Pivot GameObjects (Joints) scale locked to (1,1,1)
 - Mesh GameObjects (Visuals) were arranged according to the physical arm
-  This ensured rotation matrices were applied cleanly without distorting geometry.
+
+So, the best practice and the only way around the mesh deformation, is by using Empty game objects, you can see in my hierarchy, the pivots are empty game objects and the servo object and the Pen objects are the child of it. There is another catch, in unity u cant change the pivot of the 3d objects, so make rotate at a specific axis, you actually have to use an empty game object parented to the 3d object to rotate it in that axis. 
+<img src="media/hierarchyRestructuredAndAddedPivots.png" width="400" alt="hierarchy solution">
 
 ### Coordinate Frame Mismatch
 
