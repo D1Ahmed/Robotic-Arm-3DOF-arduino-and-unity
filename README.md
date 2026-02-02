@@ -14,27 +14,27 @@ Joint rotations or manual posing inside Unity are transmitted back to the Arduin
 
 This project bridges the gap between embedded systems, robotics, and real-time simulation, demonstrating a complete cyber-physical control loop.
 
-# Demo Video
+#### Demo Video
 
 Full Demonstration Video
 [Watch the full demo video](media/demo.mp4)
 
-# Real Time Sync
+#### Real Time Sync
 
 Moving potentiometers -> Unity arm moving
 Moving Unity arm -> physical arm moving
 [Bidirectional Digital Twin Demo](media/DigitalTwin.mp4)
 
-# Architecture Layers:
+## Architecture Layers:
 
-### Hardware Layer
+#### Hardware Layer
 
 - Arduino Uno
 - 3× SG90 / MG90S Servo Motors
 - 3× 10kΩ Linear Potentiometers
 - External 6V Power Supply (common ground)
 
-### Software Layer:
+#### Software Layer:
 
 - Unity 3D Engine (C# scripts)
 - Custom Virtual Arm with hierarchical joint structure
