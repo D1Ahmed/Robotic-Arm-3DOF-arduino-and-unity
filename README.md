@@ -23,7 +23,7 @@ Full Demonstration Video
 
 Moving potentiometers → Unity arm moving
 Moving Unity arm → physical arm moving
-![Bidirectional Digital Twin Demo](media/DigitalTwin.mp4)
+[Bidirectional Digital Twin Demo](media/DigitalTwin.mp4)
 
 # Architecture Layers:
 
