@@ -75,6 +75,7 @@ deformed mesh:
 #### Solution:
 
 The object hierarchy was restructured by separating:
+
 <img src="media/hierarchyRestructuredAndAddedPivots.png" width="400" alt="hierarchy solution">
 
 - Pivot GameObjects (Joints) scale locked to (1,1,1)
