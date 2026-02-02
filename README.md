@@ -23,7 +23,7 @@ Full Demonstration Video
 
 Moving potentiometers → Unity arm moving
 Moving Unity arm → physical arm moving
-![Bidirectional Digital Twin Demo](media/digitalTwin.mp4)
+![Bidirectional Digital Twin Demo](media/DigitalTwin.mp4)
 
 # Architecture Layers:
 
@@ -69,12 +69,12 @@ This prevents jitter, race conditions, and feedback loops.
 ### Problem:
 
 Rotating child objects in Unity caused mesh skewing and deformation due to inherited non uniform scaling.
-[Deformed mesh](media/MeshDeformation.png)
+[Deformed mesh](media/MeshDeformation.jpeg)
 
 ### Solution:
 
 The object hierarchy was restructured by separating:
-[Fixed](media/hierarchyRestructuredAndAddedPivots.png)
+[Fixed](media/hierarchyRestructuredAndAddedPivots.jpeg)
 
 - Pivot GameObjects (Joints) — scale locked to (1,1,1)
 - Mesh GameObjects (Visuals) — Were arranged according to the physical arm
