@@ -62,16 +62,17 @@ Used for remote control & posing
 
 This prevents jitter, race conditions, and feedback loops.
 
-# Key Engineering Challenges & Solutions
+## Key Engineering Challenges & Solutions
 
-## Non-Uniform Matrix Scaling (Mesh Deformation)
+### Non-Uniform Matrix Scaling (Mesh Deformation)
 
-### Problem:
+#### Problem:
 
 Rotating child objects in Unity caused mesh skewing and deformation due to inherited non uniform scaling.
 [Deformed mesh](media/MeshDeformation.png)
+<img src="media/MeshDeformation.png" width="300" alt="Circuit 1">
 
-### Solution:
+#### Solution:
 
 The object hierarchy was restructured by separating:
 [Fixed](media/hierarchyRestructuredAndAddedPivots.png)
@@ -80,25 +81,25 @@ The object hierarchy was restructured by separating:
 - Mesh GameObjects (Visuals) — Were arranged according to the physical arm
   This ensured rotation matrices were applied cleanly without distorting geometry.
 
-## Coordinate Frame Mismatch
+### Coordinate Frame Mismatch
 
-### Problem:
+#### Problem:
 
 Physical servos and Unity’s Euler rotation system used opposite rotational directions.
 
-### Solution:
+#### Solution:
 
 A mapping function was implemented in the Unity C# script:
 `mappedAngle = 180 - unityAngle;`
 This ensured consistent alignment regardless of servo orientation.
 
-## Bidirectional Latency & Feedback Collision
+### Bidirectional Latency & Feedback Collision
 
-### Problem:
+#### Problem:
 
 Simultaneous data transmission caused a “tug-of-war” effect and jitter.
 
-### Solution:
+#### Solution:
 
 A finite state machine was implemented to explicitly control the direction of authority, eliminating feedback conflicts and ensuring deterministic behavior.
 
@@ -110,7 +111,7 @@ A finite state machine was implemented to explicitly control the direction of au
 | **Circuit View 3** | **Circuit View 4** |
 | <img src="media/circuit5.jpeg" width="300" alt="Circuit 3"> | <img src="media/circuit6.jpeg" width="300" alt="Circuit 4"> |
   
-## Components
+#### Components
 
 Microcontroller: Arduino Uno
 
@@ -120,11 +121,11 @@ Microcontroller: Arduino Uno
 | **Power** | **Safety** |
 | <img src="media/batteries.jpeg" width="300"> | <img src="media/circuit2.jpeg" width="300"> |
 
-# Circuit Design & Wiring
+#### Circuit Design & Wiring
 
 This system uses a split power rail architecture to ensure electrical stability, protect the microcontroller, and provide sufficient current to the actuators.
 
-## Circuit Overview
+#### Circuit Overview
 
 The robotic arm operates using two separate power domains:
 
@@ -149,7 +150,7 @@ This shared reference is essential for correct PWM signal interpretation by the 
 
 `*⚠️ Without a common ground, servos may jitter, behave erratically, or not move at all.*`
 
-## 🔌 Pin Mapping Table
+###  Pin Mapping Table
 
 This table documents the exact electrical connections between components,,
 
@@ -162,9 +163,9 @@ This table documents the exact electrical connections between components,,
 | Servo 2 (Shoulder)         | D10 (PWM)  | Battery +6V | Battery GND + Arduino GND |
 | Servo 3 (Elbow)            | D11 (PWM)  | Battery +6V | Battery GND + Arduino GND |
 
-## Step-by-Step Wiring Guide
+### Step-by-Step Wiring Guide
 
-### Power Distribution (Breadboard Rails)
+#### Power Distribution (Breadboard Rails)
 
 Logic Power (Sensors)
 
@@ -172,7 +173,7 @@ Logic Power (Sensors)
 - Connect Arduino GND -> Breadboard Blue (−) Rail
 - This rail powers all potentiometers
 
-### Motor Power (Servos)
+#### Motor Power (Servos)
 
 - Connect Battery Pack (+) -> Separate Red (+) Rail
 - Connect Battery Pack (−) -> Separate Blue (−) Rail
@@ -184,11 +185,11 @@ Logic Power (Sensors)
 Why this matters:
 PWM signals require a shared voltage reference. Without a common ground, the signal has no return path, causing unstable servo behavior.
 
-## Wiring the Potentiometers (Input Layer)
+#### Wiring the Potentiometers (Input Layer)
 
 Potentiometers are used as **voltage dividers** to provide continuous analog input values to the Arduino, enabling precise joint position control.
 
-### Potentiometer Connections
+#### Potentiometer Connections
 
 For **each potentiometer**, make the following connections:
 
@@ -196,7 +197,7 @@ For **each potentiometer**, make the following connections:
 - **Right Pin** -> Arduino **GND**
 - **Middle Pin (Wiper)** -> Arduino **Analog Pin**
 
-### Potentiometer to Arduino Pin Mapping
+#### Potentiometer to Arduino Pin Mapping
 
 | Potentiometer  | Arduino Pin |
 | -------------- | ----------- |
@@ -206,9 +207,9 @@ For **each potentiometer**, make the following connections:
 
 
 
-## Key Components of the Code
+### Key Components of the Code
 
-### 1️Serial Communication Setup
+#### 1️Serial Communication Setup
 ```
 SerialPort sp = new SerialPort("COM3", 9600);
 Thiss makes a serial connection with the Arduino board.
@@ -273,7 +274,7 @@ In this project:
 
 - elbowJoint rotates around X-axis (forearm bend)
 
-### Why Euler angles are used and what they really are ?:
+#### Why Euler angles are used and what they really are ?:
 Euler angles are a way to represent 3D rotations using three numbers, typically denoted as roll, pitch, and yaw (or angles around the X, Y, Z axes). Imagine an object in space just liek our robotic arm or a plane. To fully describe its orientation, you need to know how much it has rotated about each axis. Euler angles do exactly that, they tell the arm “rotate X degrees around X, Y degrees around Y, Z degrees around Z" so for visualization and control of robotic joints in 3D space
 
 Sending Data from Unity -> Physical Arm
@@ -309,7 +310,7 @@ Engineering Problem Solving: Handles coordinate system mismatches (Arduino vs Un
 
 
 
-## How to Run
+### How to Run
 
 ### Arduino
 
