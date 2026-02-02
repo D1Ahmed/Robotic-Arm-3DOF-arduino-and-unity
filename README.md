@@ -103,8 +103,8 @@ Simultaneous data transmission caused a “tug-of-war” effect and jitter.
 A finite state machine was implemented to explicitly control the direction of authority, eliminating feedback conflicts and ensuring deterministic behavior.
 
 # Hardware Setup
-
-![Physical Hardware Setup](media/circuit1.jpeg)
+- **Physical Hardware Setu:** 3× SG90 / MG90S <br>
+  <img src="media/circuit1.jpeg" width="300" alt="Servo Setup">
 
 ## Components
 
