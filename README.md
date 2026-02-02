@@ -69,16 +69,17 @@ This prevents jitter, race conditions, and feedback loops.
 #### Problem:
 
 Rotating child objects in Unity caused mesh skewing and deformation due to inherited non uniform scaling.
-[Deformed mesh](media/MeshDeformation.png)
-<img src="media/MeshDeformation.png" width="300" alt="Circuit 1">
+deformed mesh:
+<img src="media/MeshDeformation.png" width="400" alt="Circuit 1">
 
 #### Solution:
 
 The object hierarchy was restructured by separating:
 [Fixed](media/hierarchyRestructuredAndAddedPivots.png)
+<img src="media/hierarchyRestructuredAndAddedPivots.png" width="400" alt="Circuit 1">
 
-- Pivot GameObjects (Joints) — scale locked to (1,1,1)
-- Mesh GameObjects (Visuals) — Were arranged according to the physical arm
+- Pivot GameObjects (Joints) scale locked to (1,1,1)
+- Mesh GameObjects (Visuals) were arranged according to the physical arm
   This ensured rotation matrices were applied cleanly without distorting geometry.
 
 ### Coordinate Frame Mismatch
