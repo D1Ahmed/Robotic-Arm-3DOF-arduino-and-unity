@@ -110,14 +110,11 @@ A finite state machine was implemented to explicitly control the direction of au
 
 Microcontroller: Arduino Uno
 
-- Servos: 3× SG90 / MG90S
-  ![Physical Hardware Setup](media/servo.jpeg)
-- Sensors: 3× 10kΩ Potentiometers
-  ![Physical Hardware Setup](media/pot.jpeg)
-- Power: External 4×AA Battery Pack
-  ![Physical Hardware Setup](media/batteries.jpeg)
-- Safety: Common ground between Arduino and external power
-  ![Physical Hardware Setup](media/circuit2.jpeg)
+| Servos | Sensors |
+| :---: | :---: |
+| <img src="media/servo.jpeg" width="300"> | <img src="media/pot.jpeg" width="300"> |
+| **Power** | **Safety** |
+| <img src="media/batteries.jpeg" width="300"> | <img src="media/circuit2.jpeg" width="300"> |
 
 # Circuit Design & Wiring
 
