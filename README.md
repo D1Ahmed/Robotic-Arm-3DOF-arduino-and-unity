@@ -103,9 +103,11 @@ Simultaneous data transmission caused a “tug-of-war” effect and jitter.
 A finite state machine was implemented to explicitly control the direction of authority, eliminating feedback conflicts and ensuring deterministic behavior.
 
 # Hardware Setup
-- **Physical Hardware Setu:** 3× SG90 / MG90S <br>
-  <img src="media/circuit1.jpeg" width="300" alt="Servo Setup">
-
+- **Physical Hardware Setu:**
+  <img src="media/circuit1.jpeg" width="300" alt="circuit">
+  <img src="media/circuit3.jpeg" width="300" alt="circuit">
+  <img src="media/circuit5.jpeg" width="300" alt="circuit">
+  <img src="media/circuit6.jpeg" width="300" alt="circuit">
 ## Components
 
 Microcontroller: Arduino Uno
