@@ -18,6 +18,11 @@ This project bridges the gap between embedded systems, robotics, and real-time s
 
 Full Demonstration Video
 [Watch the full demo video](media/demo.mp4)
+<video width="600" controls>
+  <source src="media/demo.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
 
 #### Real Time Sync
 
@@ -79,6 +84,7 @@ The object hierarchy was restructured by separating:
 - Mesh GameObjects (Visuals) were arranged according to the physical arm
 
 So, the best practice and the only way around the mesh deformation, is by using Empty game objects, you can see in my hierarchy, the pivots are empty game objects and the servo object and the Pen objects are the child of it. There is another catch, in unity u cant change the pivot of the 3d objects, so make rotate at a specific axis, you actually have to use an empty game object parented to the 3d object to rotate it in that axis. 
+
 <img src="media/hierarchyRestructuredAndAddedPivots.png" width="400" alt="hierarchy solution">
 
 ### Coordinate Frame Mismatch
