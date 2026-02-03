@@ -1,6 +1,6 @@
 # Project Overview
 
-This project implements a bidirectional Digital Twin system for a 3-DOF (Degrees of Freedom) servo-based robotic arm, synchronizing a physical robotic manipulator with a real-time physics simulation in Unity.
+This project implements a bidirectional Digital Twin system for a 3 DOF (Degrees of Freedom) servo based robotic arm, synchronizing a physical robotic manipulator with a real time physics simulation in Unity.
 
 ## The system enables two-way interaction:
 
@@ -51,13 +51,13 @@ Moving Unity arm -> physical arm moving
 
 ## Control Modes (State Machine)
 
-To ensure stable bidirectional communication, the system operates using a two-state control model:
+To ensure stable bidirectional communication, the system operates using a two state control model:
 
 ### Mode 0 — Monitor Mode (Physical -> Digital)
 
 Arduino sends potentiometer data
 Unity listens and visualizes motion
-Used for real-time mirroring
+Used for real time mirroring
 
 ### Mode 1 — Control Mode (Digital -> Physical)
 
@@ -69,7 +69,7 @@ This prevents jitter, race conditions, and feedback loops.
 
 ## Key Engineering Challenges & Solutions
 
-### Non-Uniform Matrix Scaling (Mesh Deformation)
+### Non Uniform Matrix Scaling (Mesh Deformation)
 
 #### Problem:
 
@@ -103,7 +103,7 @@ This ensured consistent alignment regardless of servo orientation.
 
 #### Problem:
 
-Simultaneous data transmission caused a “tug-of-war” effect and jitter.
+Simultaneous data transmission caused a “tug of war kinda” effect and jitter.
 
 #### Solution:
 
@@ -153,9 +153,9 @@ The robotic arm operates using two separate power domains:
 
 Although the power sources are separate, both systems share a common ground.
 This shared reference is essential for correct PWM signal interpretation by the servos.
-
-`*⚠️ Without a common ground, servos may jitter, behave erratically, or not move at all.*`
-
+```
+**Without a common ground, servos may jitter, behave erratically, or not move at all.**
+```
 ###  Pin Mapping Table
 
 This table documents the exact electrical connections between components,,
@@ -169,7 +169,7 @@ This table documents the exact electrical connections between components,,
 | Servo 2 (Shoulder)         | D10 (PWM)  | Battery +6V | Battery GND + Arduino GND |
 | Servo 3 (Elbow)            | D11 (PWM)  | Battery +6V | Battery GND + Arduino GND |
 
-### Step-by-Step Wiring Guide
+### Step by Step Wiring Guide
 
 #### Power Distribution (Breadboard Rails)
 
@@ -274,11 +274,11 @@ because each axis can be rotated independently.
 
 In this project:
 
-- baseJoint rotates around Y-axis (horizontal swivel)
+- baseJoint rotates around Y axis (horizontal swivel)
 
-- shoulderJoint rotates around X-axis (vertical lift)
+- shoulderJoint rotates around X axis (vertical lift)
 
-- elbowJoint rotates around X-axis (forearm bend)
+- elbowJoint rotates around X axis (forearm bend)
 
 #### Why Euler angles are used and what they really are ?:
 Euler angles are a way to represent 3D rotations using three numbers, typically denoted as roll, pitch, and yaw (or angles around the X, Y, Z axes). Imagine an object in space just liek our robotic arm or a plane. To fully describe its orientation, you need to know how much it has rotated about each axis. Euler angles do exactly that, they tell the arm “rotate X degrees around X, Y degrees around Y, Z degrees around Z" so for visualization and control of robotic joints in 3D space
@@ -305,7 +305,7 @@ Sends the command through serial to move the physical servos
 ### Key Takeaways 
 Bidirectional Control: Supports both physical to digital and digital to physical actuation
 
-Real-Time Synchronization: Uses SerialPort for low-latency communication
+Real Time Synchronization: Uses SerialPort for low latency communication
 
 Euler Angle Mapping: Intuitive 3D joint rotation control without complex math
 
@@ -350,8 +350,8 @@ Potential enhancements for this project include:
 - Inverse kinematics solver
 - ROS integration
 - Sensor fusion (IMU + encoders)
-- Web-based dashboard
-- Multi-arm coordination
+- Web based dashboard
+- Multi arm coordination
 
 ## Author
 
